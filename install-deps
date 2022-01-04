@@ -1,0 +1,18 @@
+#!/bin/bash
+
+sudo apt update
+sudo apt install -y httpie csvkit
+
+
+
+echo -e "\n-------------------\n"
+
+LOGSIZE=$(sudo du -sh /var/log | awk {'print($1)'})
+
+#TODO: Automate Log2RAM installation
+echo "OPTIONAL: Please install Log2RAM (https://github.com/azlux/log2ram) manually"
+echo "and set tmpfs size to at least 100MB larger than  $LOGSIZE <-- auto-detected"
+echo "Don't forget to reboot afterwards!"
+echo "By not installing you risk reducing lifespan if you use SSD/microSD!"
+
+echo -e "\n-------------------\n"
